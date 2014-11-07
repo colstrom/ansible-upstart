@@ -13,6 +13,7 @@ upstart_stop_on: shutdown
 
 upstart_environment: no
 upstart_pre_start: no
+upstart_post_stop: no
 upstart_script: no
 
 upstart_exec: 'echo Nothing defined to execute'
