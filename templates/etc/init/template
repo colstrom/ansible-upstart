@@ -1,4 +1,7 @@
 #!upstart
+
+# {{ ansible_managed }}
+
 description "{{ upstart_description }}"
 
 {% if upstart_environment is iterable %}
