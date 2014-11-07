@@ -8,8 +8,10 @@ upstart_group: root
 upstart_name: template
 upstart_description: 'Missing Description'
 
-upstart_start_on: startup
-upstart_stop_on: shutdown
+upstart_start_on:
+  - startup
+upstart_stop_on:
+  - shutdown
 
 upstart_environment: no
 upstart_pre_start: no
