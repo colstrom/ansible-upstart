@@ -1,0 +1,54 @@
+#!upstart
+description "{{ upstart_description }}"
+
+{% if upstart_environment is iterable %}
+{%   for environment_variable in upstart_environment %}
+env {{ environment_variable.name }}={{ environment_variable.value }}
+{%   endfor %}
+{% endif %}
+
+{% for event in upstart_start_on %}
+start on {{ event }}
+{% endfor %}
+
+{% for event in upstart_stop_on %}
+stop on {{ event }}
+{% endfor %}
+
+pre-start script
+  mkdir -p {{ upstart_runtime_root }}
+
+{% if upstart_pre_start is iterable %}
+{%   for command in upstart_pre_start %}
+  {{ command  }}
+{%   endfor %}
+{% endif %}
+
+end script
+
+{% if upstart_script is iterable %}
+
+script
+
+{%   for command in upstart_script %}
+  {{ command }}
+{%   endfor %}
+
+end script
+
+{% else %}
+
+exec start-stop-daemon --start --make-pidfile --pidfile {{ upstart_pidfile_path }} --exec {{ upstart_exec }}
+
+{% endif %}
+
+post-stop script
+  rm {{ upstart_pidfile_path }}
+
+{% if upstart_post_stop is iterable %}
+{%   for command in upstart_post_stop %}
+  {{ command }}
+{%   endfor %}
+{% endif %}
+
+end script

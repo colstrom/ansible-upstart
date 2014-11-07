@@ -1,0 +1,5 @@
+---
+- name: "Upload Upstart Script | {{ upstart_name }}"
+  template:
+    src: etc/init/template
+    dest: "{{ /etc/init/{{ upstart_name }}"
