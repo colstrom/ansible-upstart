@@ -35,7 +35,7 @@ script
 {%   endfor %}
 end script
 {% else %}
-exec start-stop-daemon --start --make-pidfile --pidfile {{ upstart_pidfile_path }} --exec {{ upstart_exec }} >> {{ upstart_log_path }}
+exec start-stop-daemon --start --make-pidfile --pidfile {{ upstart_pidfile_path }} --exec {{ upstart_exec }} {{ '2>&1' if upstart_capture_errors }} >> {{ upstart_log_path }}
 {% endif %}
 
 post-stop script
