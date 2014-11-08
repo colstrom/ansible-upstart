@@ -3,3 +3,9 @@
   template:
     src: etc/init/template
     dest: "/etc/init/{{ upstart_name }}.conf"
+
+- name: "Link Upstart Script to /etc/init.d/{{ upstart_name }}"
+  file:
+    state: link
+    src: /etc/init/upstart-job
+    dest: "/etc/init.d/{{ upstart_name }}"
