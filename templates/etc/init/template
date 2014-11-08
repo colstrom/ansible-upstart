@@ -20,6 +20,7 @@ stop on {{ event }}
 
 pre-start script
   mkdir -p {{ upstart_runtime_root }}
+  mkdir -p {{ upstart_log_root }}
 {% if upstart_pre_start is iterable %}
 {%   for command in upstart_pre_start %}
   {{ command  }}
@@ -34,7 +35,7 @@ script
 {%   endfor %}
 end script
 {% else %}
-exec start-stop-daemon --start --make-pidfile --pidfile {{ upstart_pidfile_path }} --exec {{ upstart_exec }}
+exec start-stop-daemon --start --make-pidfile --pidfile {{ upstart_pidfile_path }} --exec {{ upstart_exec }} >> {{ upstart_log_path }}
 {% endif %}
 
 post-stop script
