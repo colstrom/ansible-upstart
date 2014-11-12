@@ -9,3 +9,4 @@
     state: link
     src: /etc/init/upstart-job
     dest: "/etc/init.d/{{ upstart_name }}"
+    force: yes
