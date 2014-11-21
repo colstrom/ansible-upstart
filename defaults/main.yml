@@ -1,12 +1,12 @@
 ---
+upstart_runtime_root: "{{ runtime_root | default('/var/run') }}/{{ upstart_name }}"
 upstart_pidfile_path: "{{ upstart_runtime_root }}/{{ upstart_name }}.pid"
-upstart_runtime_root: "{{ runtime_root }}/{{ upstart_name }}"
 
 upstart_user: root
 upstart_group: root
 
 upstart_name: template
-upstart_description: 'Missing Description'
+upstart_description: 'Nondescript Template'
 
 upstart_start_on:
   - startup
