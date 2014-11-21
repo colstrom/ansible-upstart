@@ -20,6 +20,7 @@ upstart_script: no
 
 upstart_exec: 'echo Nothing defined to execute'
 
-upstart_log_root: "{{ log_root }}/{{ upstart_name }}"
+upstart_log_root: "{{ log_root | default('/var/log') }}/{{ upstart_name }}"
 upstart_log_path: "{{ upstart_log_root }}/{{ upstart_name }}.log"
+
 upstart_capture_errors: yes
