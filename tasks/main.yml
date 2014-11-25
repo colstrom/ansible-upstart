@@ -7,6 +7,6 @@
 - name: "Link Upstart Script to /etc/init.d/{{ upstart_name }}"
   file:
     state: link
-    src: /etc/init/upstart-job
+    src: /lib/init/upstart-job
     dest: "/etc/init.d/{{ upstart_name }}"
     force: yes
