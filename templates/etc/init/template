@@ -18,6 +18,10 @@ start on {{ event }}
 stop on {{ event }}
 {% endfor %}
 
+{% if upstart_file_descriptor_limit is defined %}
+limit nofile {{ upstart_file_descriptor_limit }} {{ upstart_file_descriptor_limit }}
+{% endif %}
+
 pre-start script
   mkdir -p {{ upstart_runtime_root }}
   mkdir -p {{ upstart_log_root }}

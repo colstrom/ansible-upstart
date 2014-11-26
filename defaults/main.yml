@@ -13,6 +13,7 @@ upstart_start_on:
 upstart_stop_on:
   - shutdown
 
+upstart_file_descriptor_limit: no
 upstart_environment: no
 upstart_pre_start: no
 upstart_post_stop: no
