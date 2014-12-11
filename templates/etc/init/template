@@ -18,7 +18,7 @@ start on {{ event }}
 stop on {{ event }}
 {% endfor %}
 
-{% if upstart_file_descriptor_limit is not False %}
+{% if upstart_file_descriptor_limit not False %}
 limit nofile {{ upstart_file_descriptor_limit }} {{ upstart_file_descriptor_limit }}
 {% endif %}
 
