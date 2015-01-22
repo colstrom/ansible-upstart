@@ -24,7 +24,9 @@ limit nofile {{ upstart_file_descriptor_limit }} {{ upstart_file_descriptor_limi
 
 pre-start script
   mkdir -p {{ upstart_runtime_root }}
+  chown {{ upstart_user }}:{{ upstart_group }} {{ upstart_runtime_root }}
   mkdir -p {{ upstart_log_root }}
+  chown {{ upstart_user }}:{{ upstart_group }} {{ upstart_log_root }}
 {% if upstart_pre_start is iterable %}
 {%   for command in upstart_pre_start %}
   {{ command  }}
