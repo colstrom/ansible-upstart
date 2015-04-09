@@ -3,6 +3,8 @@
   template:
     src: etc/init/template
     dest: "/etc/init/{{ upstart_name }}.conf"
+  tags:
+    - upstart
 
 - name: "Link Upstart Script to /etc/init.d/{{ upstart_name }}"
   file:
@@ -10,3 +12,5 @@
     src: /lib/init/upstart-job
     dest: "/etc/init.d/{{ upstart_name }}"
     force: yes
+  tags:
+    - upstart
