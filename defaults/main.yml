@@ -9,9 +9,9 @@ upstart_name: template
 upstart_description: 'Nondescript Template'
 
 upstart_start_on:
-  - startup
+  - "runlevel [2345]"
 upstart_stop_on:
-  - shutdown
+  - "runlevel [!2345]"
 
 upstart_file_descriptor_limit: no
 upstart_environment: no
