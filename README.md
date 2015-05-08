@@ -1,6 +1,6 @@
-# ansible-fish
+# ansible-upstart
 
-[fish](http://fishshell.com/) - the friendly interactive shell
+[Upstart](http://upstart.ubuntu.com/) is an event-based replacement for the /sbin/init daemon which handles starting of tasks and services during boot, stopping them during shutdown and supervising them while the system is running.
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
@@ -48,3 +48,6 @@ License
 Contributors
 ------------
 * [Chris Olstrom](https://colstrom.github.io/) | [e-mail](mailto:chris@olstrom.com) | [Twitter](https://twitter.com/ChrisOlstrom)
+* Aaron Pederson
+* Justin Scott
+* Steven Harradine
